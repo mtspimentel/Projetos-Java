@@ -1,10 +1,14 @@
 package BankBalance;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
 
-    private  int id;
+    private int id;
     private String name;
     private double balance;
+    private final List<Transaction> transactions = new ArrayList<>();
 
 
     public Account(String name, int id) {
@@ -12,42 +16,36 @@ public class Account {
         this.id = id;
     }
 
-    public Account(String name, int id, double initialDeposit) {
-        this.name = name;
-        this.id = id;
-        deposit(initialDeposit);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
     public void deposit(double amount) {
         balance += amount;
+        transactions.add(new Transaction("Deposit", amount));
     }
 
-    public void withdraw(double amount) {
+    public boolean withdraw(double amount) {
+        if (amount + 5 > balance){
+            return false;
+        }
         balance -= amount + 5;
+        transactions.add(new Transaction("Withdraw", amount));
+        transactions.add(new Transaction("Fee", 5));
+        return true;
+    }
+
+    public void showTransactions() {
+        System.out.println(" ----- TRANSACTION HISTORY -----");
+
+        for (Transaction transaction : transactions) {
+            System.out.println(transaction);
+        }
+        System.out.println("------------------------");
     }
 
     public String toString() {
         return "Account "
                 + id
-                +", Holder: "
+                + ", Holder: "
                 + name
-                +", Balance: $"
-                +balance;
+                + ", Balance: $"
+                + balance;
     }
 }

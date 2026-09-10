@@ -12,7 +12,7 @@ public class FinalNotes {
     }
 
     public double missingNote() {
-        return 60 - totalNotes() ;
+        return 60 - totalNotes();
     }
 
     public String toString() {
