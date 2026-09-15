@@ -19,5 +19,4 @@ public class FinalNotes {
         return String.format("Final da grade: %.2f", totalNotes());
     }
 
-
 }

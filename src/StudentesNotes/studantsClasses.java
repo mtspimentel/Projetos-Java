@@ -30,6 +30,7 @@ public class studantsClasses {
             System.out.printf("MISSING %.2f POINTS%n", aluno.missingNote());
         }
 
+
         sc.close();
     }
 }
