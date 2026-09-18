@@ -9,6 +9,7 @@ public class roomSystem {
         Scanner sc = new Scanner(System.in);
 
         Rent[] vect = new Rent[10];
+        System.out.println("===== Welcome Pimentel Hotel! =====");
         System.out.print("How many rooms will be rent?");
         int n = sc.nextInt();
 
